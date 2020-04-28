@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    text: "Wpisz datę wydarzenia, a otrzymasz odpowiedź w języku angielskim",
+    error: "",
+  };
+
+  handleDateChange = (e) => {
+    const value = this.refs.number.value;
+    console.log(value);
+    fetch(`http://numbersapi.com/${value}/year?json`)
+      // Response
+      .then((res) => {
+        if (res.ok) {
+          return res;
+        }
+        throw Error(res.status);
+      })
+      .then((res) => res.json())
+      .then((data) =>
+        this.setState({
+          text: "👁‍🗨 " + data.text,
+        })
+      )
+      .catch((err) => {
+        this.setState({ text: "Jest problem :( " + err });
+      });
+  };
+
+  render() {
+    return (
+      <div className="center">
+        <input onChange={this.handleDateChange} type="text" ref="number" />
+        <p>{this.state.text}</p>
+      </div>
+    );
+  }
 }
-
 export default App;

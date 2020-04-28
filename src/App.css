@@ -1,38 +1,43 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background: url(./img/sowa.jpg) center/cover no-repeat;
+  width: 100%;
   min-height: 100vh;
+  font-size: 10px;
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
-
-.App-link {
-  color: #61dafb;
+.center input {
+  background: rgba(221, 221, 221, 0.931);
+  outline: none;
+  border: none;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  max-width: 10rem;
+  width: 150px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+p {
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem;
+  box-shadow: 7px 7px 15px #dabbd0, -4px -4px 13px #fff,
+    inset 4px 4px 8px rgba(224, 209, 230, 0.2),
+    inset -8px -8px 8px rgba(255, 255, 255, 0.2);
+  background: rgba(117, 56, 28, 0.753);
+  text-shadow: 0.05rem 0.05rem 0.05rem rgba(2, 2, 2, 0.3);
+}
+@media only screen and (max-width: 560px) {
+  p {
+    font-size: 1.4rem;
   }
 }
