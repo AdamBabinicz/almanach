@@ -1,6 +1,7 @@
 {
   "name": "react-samuraj",
   "version": "0.1.0",
+  "homepage": "https://almanach.netlify.app",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
